@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <!-- Center of buoyancy -->
+  <xacro:property name="auv_cob" value="0 0 0.07"/>
+
+  <xacro:property name="auv_volume"  value="0.06157521601"/>
+  <xacro:property name="auv_length"  value="1.0"/>
+  <xacro:property name="auv_width"   value="0.14"/>
+  <xacro:property name="auv_height"  value="0.14"/>
+
+</robot>
