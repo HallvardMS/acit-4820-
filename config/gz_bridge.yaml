@@ -1,0 +1,76 @@
+# Topic published by Sensors plugin
+- ros_topic_name: "scan"
+  gz_topic_name:  "scan"
+  ros_type_name:  "sensor_msgs/msg/LaserScan"
+  gz_type_name:   "gz.msgs.LaserScan"
+  direction:       GZ_TO_ROS
+
+# Topic published by the simulator core
+- ros_topic_name: "clock"
+  gz_topic_name:  "clock"
+  ros_type_name:  "rosgraph_msgs/msg/Clock"
+  gz_type_name:   "gz.msgs.Clock"
+  direction:       GZ_TO_ROS
+
+# Topic published by JointState plugin
+- ros_topic_name: "joint_states"
+  gz_topic_name:  "joint_states"
+  ros_type_name:  "sensor_msgs/msg/JointState"
+  gz_type_name:   "gz.msgs.Model"
+  direction:       GZ_TO_ROS
+
+# Topic published by DiffDrive plugin
+- ros_topic_name: "odom"
+  gz_topic_name:  "odom"
+  ros_type_name:  "nav_msgs/msg/Odometry"
+  gz_type_name:   "gz.msgs.Odometry"
+  direction:       GZ_TO_ROS
+
+# IMU Data
+- ros_topic_name: "imu"
+  gz_topic_name:  "imu_sensor_topic"
+  ros_type_name:  "sensor_msgs/msg/Imu"
+  gz_type_name:   "gz.msgs.IMU"
+  direction:       GZ_TO_ROS
+
+# Topic published by DiffDrive plugin
+- ros_topic_name: "tf"
+  gz_topic_name:  "tf"
+  ros_type_name:  "tf2_msgs/msg/TFMessage"
+  gz_type_name:   "gz.msgs.Pose_V"
+  direction:       GZ_TO_ROS
+
+# Topic published by Keyboard Controller
+- ros_topic_name: "cmd_thrust"
+  gz_topic_name:  "/perri_auvcmd_thrust" 
+  ros_type_name:  "std_msgs/msg/Float64"
+  gz_type_name:   "gz.msgs.Double"
+  direction:       ROS_TO_GZ
+
+# Buoyancy/Ballast Command
+- ros_topic_name:  "cmd_ballast"
+  gz_topic_name:   "/cmd_ballast_in" 
+  ros_type_name:   "geometry_msgs/msg/Wrench"
+  gz_type_name:    "gz.msgs.Wrench"
+  direction:        ROS_TO_GZ
+
+# Yaw controller
+- ros_topic_name: "/cmd_yaw"
+  gz_topic_name:  "/cmd_yaw"
+  ros_type_name:  "std_msgs/msg/Float64"
+  gz_type_name:   "gz.msgs.Double"
+  direction:       ROS_TO_GZ
+
+# Pitch controller
+- ros_topic_name: "cmd_pitch"
+  gz_topic_name:  "/cmd_pitch"
+  ros_type_name:  "std_msgs/msg/Float64"
+  gz_type_name:   "gz.msgs.Double"
+  direction:       ROS_TO_GZ
+
+# Moving Mass Control
+- ros_topic_name: "/cmd_moving_mass"
+  gz_topic_name:  "/cmd_moving_mass"
+  ros_type_name:  "std_msgs/msg/Float64"
+  gz_type_name:   "gz.msgs.Double"
+  direction:       ROS_TO_GZ
