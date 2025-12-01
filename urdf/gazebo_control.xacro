@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+   <gazebo>
+
+<!-- the diffrent controlable joints-->
+      <plugin filename="gz-sim-joint-state-publisher-system" name="gz::sim::systems::JointStatePublisher">
+         <topic>joint_states</topic>
+         <joint_name>propeller_joint</joint_name>
+         <joint_name>steering_yaw_joint</joint_name>
+         <joint_name>steering_pitch_joint</joint_name>
+         <joint_name>moving_mass_joint</joint_name>
+      </plugin>
+
+<!-- thruster plugin -->
+      <plugin filename="gz-sim-thruster-system" name="gz::sim::systems::Thruster">
+         <topic>/cmd_thrust</topic> 
+         <joint_name>propeller_joint</joint_name>
+         <fluid_density>1000</fluid_density>
+         <propeller_diameter>0.12</propeller_diameter>
+         <thrust_coefficient>100000</thrust_coefficient> 
+         <p_gain>100.0</p_gain>
+      </plugin>
+   
+<!--moving mass plugin-->
+      <plugin filename="gz-sim-joint-position-controller-system" name="gz::sim::systems::JointPositionController">
+         <joint_name>moving_mass_joint</joint_name>
+         <topic>/cmd_moving_mass</topic>
+         <p_gain>1000.0</p_gain> <i_gain>10.0</i_gain>
+         <d_gain>50.0</d_gain>
+         <initial_position>0.0</initial_position>
+      </plugin>
+
+<!-- yaw control plugin -->
+      <plugin filename="gz-sim-joint-position-controller-system" name="gz::sim::systems::JointPositionController">
+         <joint_name>steering_yaw_joint</joint_name>
+         <topic>/cmd_yaw</topic>
+         <p_gain>10.0</p_gain> 
+         <i_gain>10</i_gain>
+         <d_gain>50.0</d_gain>
+         <initial_position>0.0</initial_position>
+      </plugin>
+
+<!-- Pitch Control plugin-->
+      <plugin filename="gz-sim-joint-position-controller-system" name="gz::sim::systems::JointPositionController">
+         <joint_name>steering_pitch_joint</joint_name>
+         <topic>/cmd_pitch</topic>
+         <p_gain>10.0</p_gain>
+         <i_gain>0.1</i_gain>
+         <d_gain>1.0</d_gain>
+      </plugin>
+      
+   </gazebo>
+</robot>
